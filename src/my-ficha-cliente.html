@@ -1,0 +1,32 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../bower_components/vaadin-combo-box/vaadin-combo-box.html">
+
+<dom-module id="my-ficha-cliente">
+
+  <!-- Defines the element's style and local DOM -->
+  <template>
+    <style>
+      :host {
+        display: block;
+        padding: 16px;
+      }
+    </style>
+    <h1>Ficha cliente</h1>
+    <vaadin-combo-box id="cmbDocumento"label="Documento" items="[[data]]"></vaadin-combo-box>
+  </template>
+
+  <!-- Creates the element's prototype and registers it -->
+  <script>
+    Polymer({
+      is: 'my-ficha-cliente',
+      properties: {
+        route: Object
+      },
+      ready: function(){
+      	var grid = this.$.cmbDocumento;
+      	grid.items = ['DNI', 'RUC', 'OTRO'];
+      }
+    });
+  </script>
+
+</dom-module>
